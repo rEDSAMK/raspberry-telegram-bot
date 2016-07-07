@@ -1,0 +1,23 @@
+{
+  "name": "raspberry-telegram-bot",
+  "version": "1.0.0",
+  "description": "A telegram bot for raspberry",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vincenzo 'rEDSAMK' Greco",
+  "license": "ISC",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.23.3"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rEDTUNING/raspberry-telegram-bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rEDTUNING/raspberry-telegram-bot/issues"
+  },
+  "homepage": "https://github.com/rEDTUNING/raspberry-telegram-bot#readme"
+}
