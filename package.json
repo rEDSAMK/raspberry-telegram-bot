@@ -1,7 +1,7 @@
 {
   "name": "raspberry-telegram-bot",
   "version": "1.0.0",
-  "description": "A telegram bot for raspberry",
+  "description": "A telegram bot for raspberrypi",
   "main": "bot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,7 +9,8 @@
   "author": "Vincenzo 'rEDSAMK' Greco",
   "license": "ISC",
   "dependencies": {
-    "node-telegram-bot-api": "^0.23.3"
+    "node-telegram-bot-api": "^0.23.3",
+    "util": "^0.10.3"
   },
   "devDependencies": {},
   "repository": {

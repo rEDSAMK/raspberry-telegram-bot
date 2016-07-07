@@ -1,10 +1,12 @@
-var token = 'my-telegram-bot-token';
-var AUTHID = 'my-telegram-id';
-var botname = 'my-bot-name';
-var TEMP_LIMIT = 50;
+//SETTINGS VAR
+var token = 'my-telegram-bot-token'; //INSERT HERE YOUR AUTHENTICATION TOKEN PROVIDED BY @BotFather
+var AUTHID = 'my-telegram-id'; //INSERT HERE YOUR UNIQUE ID, YOU CAN FIND IT STARTING THE BOT AND SENDING THE COMMAND /myid
+var botname = 'my-bot-name'; //INSERT YOUR YOUR BOT NAME (OR WHAT YOU PREFERE)
+
+
+var TEMP_LIMIT = 60;
 var tempLimitToggle = false;
 var setIntervalTemp;
-
 
 var Bot = require('node-telegram-bot-api'),
     bot = new Bot(token, { polling: true });
@@ -16,7 +18,8 @@ var sys = require('util'),
 
 console.log('Bot @'+botname+' - server started...');
 
-send("@"+botname+" is now up!", AUTHID);
+
+send("@"+botname+" is now up!", AUTHID); //THE BOT WILL SEND THIS MESSAGE AT THE START
 
 
 bot.onText(/^\/temp_limit on (\d{2})$/, function (msg, match) {
@@ -111,6 +114,30 @@ bot.onText(/^\/reboot$/, function(msg, match){
 	}
 });
 
+bot.onText(/^\/cpu$/, function(msg, match){
+	var reply = "";
+	if(msg.chat.id == AUTHID){
+		child = exec("top -d 0.5 -b -n2 | grep 'Cpu(s)'|tail -n 1 | awk '{print $2 + $4}'", function (error, stdout, stderr) {
+			if (error !== null) {
+				console.log('exec error: ' + error);
+				reply = "Error: " + error;
+				send(reply, msg.chat.id);
+			} else {
+				var cpu = parseFloat(stdout);
+				reply = "CPU Load: " + cpu + "%";
+				console.log(msg.chat.id);
+				send(reply, msg.chat.id);
+			}
+		});
+	}
+});
+
+bot.onText(/^\/myid$/, function(msg, match){
+	send("Your unique ID is: "+msg.chat.id, msg.chat.id);
+  send("Insert this in 'my-telegram-id' in your bot.js", msg.chat.id);
+});
+
+/* SEND FUNCTION */
 function send(msg, id){
 	console.log(id);
 	bot.sendMessage(id, msg).then(function () {
