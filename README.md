@@ -4,6 +4,8 @@ This is a simple bot for Telegram to control temperatures \ CPU usage or launch 
 
 Support commands and auto-notify. When the Node.js bot will go up (example. after a RaspberryPi reboot) the bot will notify you with a message.
 
+Find more infos on my blog https://pluma-redsamk.rhcloud.com/. (Soon will be posted an article about this bot with a tutorial).
+
 ##Setup
 
 1. Install dependencies with `npm install`
@@ -51,7 +53,7 @@ bot.onText(/^\/mycommand$/, function (msg, match) {
 });
 ```
 
-You have to use Javascript Regular expression (like `/^\/mycommand$/`) for parse your command and your eventually parameter. In the snippet example this regex will recognize the command `/mycommand`. Some usefull regex guide on https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+Use Javascript Regular expression (like `/^\/mycommand$/`) for parse your command and your parameters (if any). In the snippet example the regex will recognize the command `/mycommand`. Some usefull regex guide on https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
 
 Use `send(message, msg.chat.id)` inside your command code for send a message. In this case `msg.chat.id` is the id of who sent you the command.
 
@@ -73,4 +75,4 @@ In the `match` array you will find all your parameters (ignore match[0] is the t
 
 ##Packages used
 
-This bot uses `node-telegram-bot-api`. You can find the documentation on https://github.com/yagop/node-telegram-bot-api
+This bot uses `node-telegram-bot-api`. You can find the documentation on https://github.com/yagop/node-telegram-bot-api. **Thanks a lot to them**
