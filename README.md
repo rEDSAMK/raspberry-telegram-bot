@@ -6,7 +6,25 @@ Support commands and auto-notify. When the Node.js bot will go up (example. afte
 
 Find more infos on my blog https://pluma-redsamk.rhcloud.com/. (Soon will be posted an article about this bot with a tutorial).
 
+This bot is tested on a RaspberryPi 3, but is supposed to work on any RaspberryPi with Node.js installed
+
 ##Setup
+
+The steps are supposed to be made on a RaspberryPi with the use of ssh, scp and\or what you prefere.
+
+First of all install Node.js on your RaspberryPi (if not yet installed or upgraded by you):
+
+1. Use the following terminal commands for install the latest Node.js version (more on nodesource https://github.com/nodesource/distributions)
+
+```
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install -y nodejs
+sudo apt-get install -y build-essential
+```
+
+2. Check if Node.js is correctly installed with `node -v`. It should appear the installed Node.js version (6.x)
+
+Now is time to download\clone or whatever you want to get the source code of this bot. Enter the bot source code folder and start with the following steps!
 
 1. Install dependencies with `npm install`
 2. Create your personal Telegram bot following these instructions: https://core.telegram.org/bots#botfather (point 6. BotFather)
